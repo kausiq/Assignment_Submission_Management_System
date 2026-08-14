@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply antialiased;
+  }
+  body {
+    background-color: #FAFAF7;
+    background-image:
+      linear-gradient(#EDE9DD 1px, transparent 1px);
+    background-size: 100% 2.35rem;
+  }
+  h1, h2, h3, h4 {
+    @apply font-display text-ink-800;
+  }
+  *:focus-visible {
+    outline: 2px solid #C9922A;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .tab-strip {
+    @apply relative flex gap-1 border-b border-ink-100;
+  }
+  .tab-strip-item {
+    @apply relative -mb-px px-4 py-2.5 text-sm font-medium text-slate rounded-t-lg cursor-pointer select-none transition-colors;
+  }
+  .tab-strip-item.active {
+    @apply bg-paper text-ink-700 border border-ink-100 border-b-paper;
+  }
+  .tab-strip-item.active::after {
+    content: '';
+    @apply absolute left-3 right-3 -top-[3px] h-[3px] rounded-full;
+    background: #C9922A;
+  }
+  .card {
+    @apply bg-white border border-ink-100 rounded-lg shadow-sm;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded font-medium text-sm px-4 py-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-ink-700 text-white hover:bg-ink-800;
+  }
+  .btn-secondary {
+    @apply btn bg-white text-ink-700 border border-ink-200 hover:bg-ink-50;
+  }
+  .btn-accent {
+    @apply btn bg-gold-500 text-white hover:bg-gold-600;
+  }
+  .btn-danger {
+    @apply btn bg-rose-500 text-white hover:bg-rose-600;
+  }
+  .input {
+    @apply w-full rounded border border-ink-200 bg-white px-3 py-2 text-sm text-ink-800 placeholder:text-ink-300 focus:border-teal-500 outline-none;
+  }
+  .label {
+    @apply block text-xs font-semibold uppercase tracking-wide text-slate mb-1;
+  }
+  .stamp {
+    @apply inline-flex items-center gap-1.5 rounded-sm px-2 py-0.5 text-xs font-mono font-medium uppercase tracking-wide border;
+  }
+  .stamp-draft { @apply bg-ink-50 text-ink-500 border-ink-200; }
+  .stamp-published { @apply bg-teal-50 text-teal-700 border-teal-100; }
+  .stamp-submitted { @apply bg-ink-50 text-ink-600 border-ink-200; }
+  .stamp-late { @apply bg-rose-100 text-rose-600 border-rose-100; }
+  .stamp-graded { @apply bg-gold-100 text-gold-600 border-gold-100; }
+}
